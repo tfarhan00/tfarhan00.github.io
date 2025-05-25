@@ -3,164 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tengku farhan - software eng.</title>
+    <title>Tengku Farhan - Software Engineer</title>
     <style>
-        /* Retro Reset, No Borders, Left-Aligned Vibes */
+        /* Classic Paper-like Design */
         body {
-            font-family: "Times New Roman", Times, serif;
-            background-color: #f0f0f0; /* Light grey, peak GeoCities */
-            color: #000000;
-            line-height: 1.6;
-            margin: 0 auto; /* Center content */
-            max-width: 800px; /* Old-school width cap */
-            padding: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
+            font-family: "Georgia", "Times New Roman", serif;
+            background-color: #faf8f1; /* Warm paper tone */
+            color: #2c2c2c;
+            line-height: 1.7;
+            margin: 0 auto;
+            max-width: 750px;
+            padding: 40px 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            background-image: 
+                radial-gradient(circle at 20px 50px, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+                radial-gradient(circle at 40px 80px, rgba(200, 200, 200, 0.05) 1px, transparent 1px);
         }
 
         h1, h2, h3 {
-            font-family: "Times New Roman", Times, serif;
-            color: #333;
-            text-align: left; /* Left-aligned for that raw energy */
-            margin-bottom: 0.5em;
+            font-family: "Georgia", serif;
+            color: #1a1a1a;
+            margin-bottom: 0.8em;
         }
 
         h1 {
             font-size: 2.5em;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            font-weight: normal;
+            margin-bottom: 0.3em;
+            color: #8b4513;
         }
 
         h2 {
-            font-size: 1.8em;
+            font-size: 1.4em;
             font-style: italic;
-            color: #555;
+            color: #6b4423;
+            margin-bottom: 2em;
+            font-weight: normal;
         }
 
         h3 {
-            font-size: 1.4em;
-            margin-top: 30px;
-            padding-bottom: 5px;
+            font-size: 1.5em;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            color: #8b4513;
+            border-bottom: 2px solid #d4c4a8;
+            padding-bottom: 0.3em;
+            font-weight: normal;
         }
 
         p {
-            margin-bottom: 1em;
+            margin-bottom: 1.2em;
+            text-align: justify;
+            text-indent: 1.5em;
+        }
+
+        .intro {
+            text-indent: 0;
+            font-size: 1.1em;
+            color: #4a4a4a;
+            margin-bottom: 1.5em;
         }
 
         a {
-            color: #0000ee; /* OG blue link */
-            text-decoration: underline;
-        }
-
-        a:visited {
-            color: #551a8b; /* Purple visited link, nostalgic af */
+            color: #8b4513;
+            text-decoration: none;
+            border-bottom: 1px dotted #8b4513;
+            transition: all 0.3s ease;
         }
 
         a:hover {
-            text-decoration: none; /* Hover like it’s 1999 */
+            color: #a0522d;
+            border-bottom: 1px solid #a0522d;
         }
 
         ul {
-            list-style-type: square; /* Quirky bullet choice */
-            padding-left: 40px;
+            list-style-type: none;
+            padding-left: 0;
         }
 
         li {
-            margin-bottom: 0.5em;
+            margin-bottom: 0.8em;
+            position: relative;
+            padding-left: 2em;
+            text-align: justify;
+        }
+
+        li:before {
+            content: "•";
+            color: #8b4513;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0.5em;
+        }
+
+        .contact-list li:before {
+            content: "→";
+            font-size: 1em;
         }
 
         hr {
-            border: 0;
+            border: none;
             height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(150, 150, 150, 0.75), rgba(0, 0, 0, 0));
-            margin: 30px 0;
+            background: linear-gradient(to right, transparent, #d4c4a8, transparent);
+            margin: 3em 0;
         }
 
         .footer {
-            margin-top: 40px;
-            padding-top: 10px;
+            margin-top: 4em;
+            padding-top: 2em;
+            border-top: 1px solid #e6dcc9;
             font-size: 0.9em;
             color: #666;
-            text-align: left; /* Left-aligned footer */
-        }
-
-        /* Terminal aesthetic, Gen Z edition */
-        .arch-btw {
+            text-align: center;
             font-style: italic;
-            color: #006400; /* Dark Green */
-            background-color: #e0e0e0; /* Grey but make it pop */
-            padding: 2px 4px;
-            border-radius: 3px;
         }
 
-        /* Fake Visitor Counter - Y2K Core */
-        .visitor-counter {
-            margin-top: 15px;
-            font-weight: bold;
-            display: inline-block;
-            padding: 3px 8px;
-            background-color: #ddd;
+        .signature {
+            margin-top: 2em;
+            text-align: right;
+            font-style: italic;
+            color: #8b4513;
+            font-size: 1.1em;
         }
 
+        /* Paper texture enhancement */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(45deg, transparent 49%, rgba(139, 69, 19, 0.02) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(139, 69, 19, 0.02) 50%, transparent 51%);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
 
-    <h1>tengku farhan</h1>
-    <h2>software engineer</h2>
+    <h1>Tengku Farhan</h1>
+    <h2>Software Engineer</h2>
 
     <hr>
 
-    <h3>Sup, Doomscroll Survivor!</h3>
-    <p>
-        Welcome to my corner of the internet. I’m Han, a software engineer based in Jakarta, crafting clean code and tackling bugs with a side of humor. I run Arch Linux, navigate terminal mishaps, and build projects that don’t crash (usually).
+    <h3>About Me</h3>
+    <p class="intro">
+        Welcome to my personal space on the web. I'm Han, a software engineer based in Jakarta, dedicated to crafting reliable software solutions and solving complex technical challenges. When I'm not immersed in code, you'll find me exploring the depths of Linux systems and contributing to open-source projects.
     </p>
 
     <hr>
 
-    <h3>My Money Making Ability</h3>
+    <h3>Technical Expertise</h3>
     <ul>
-       <li>Slapping together websites with Python and JavaScript that don’t look like a 90s Geocities dumpster fire</li>
-    <li>Building APIs that actually work instead of throwing 500 errors like a tantrum</li>
-    <li>Committing to Git before my code decides to ghost me</li>
-    <li>Using Docker to avoid deployment nightmares that make grown devs cry</li>
-    <li>Wrestling SQL and NoSQL databases to cough up data without a fight</li>
-    <li>Deploying on AWS or GCP, because local servers are for amateurs</li>
-    <li>Decoding logs so cursed they’d make a junior dev quit on the spot</li>
-    <li>Keeping Arch Linux alive despite its best efforts to self-destruct</li>
-    <li>Explaining tech to non-techies without losing my last shred of patience</li>
-    <li>Dipping into Rust or C when JavaScript’s slowness tests my will to live</li>
+        <li>Developing responsive web applications using Python and JavaScript with modern frameworks and best practices</li>
+        <li>Building robust RESTful APIs with comprehensive error handling and documentation</li>
+        <li>Implementing version control workflows and collaborative development practices with Git</li>
+        <li>Containerizing applications with Docker for consistent deployment across environments</li>
+        <li>Designing and optimizing both SQL and NoSQL database architectures for performance</li>
+        <li>Managing cloud infrastructure on AWS and Google Cloud Platform with scalability in mind</li>
+        <li>Analyzing system logs and implementing monitoring solutions for production applications</li>
+        <li>Maintaining and customizing Arch Linux environments for development workflows</li>
+        <li>Translating complex technical concepts into clear documentation for diverse audiences</li>
+        <li>Exploring systems programming with Rust and C for performance-critical applications</li>
     </ul>
 
     <hr>
 
-    <h3>My Side Quests (Projects)</h3>
+    <h3>Selected Projects</h3>
     <p>
-        Check my creations—some are straight W’s, others are giving “it worked in dev” energy. Full lore drop soon, unless I’m stuck in a Neovim rabbit hole or ratioed by a bad merge.
+        Here are some of the projects I've been working on. Each represents different aspects of my interests in software development, from system tools to web applications. I'm always happy to discuss the technical details behind any of these.
     </p>
     <ul>
-        <li><strong>SwayPlus:</strong> Sway Window Manager <blink> but enhanced</li>
-        <li><strong>Telegram Referral Bot:</strong> W template for selling scammy course with telegram</li>
-        <li><strong>Solana NFT Creator:</strong> Rugpull never been this easy</li>
+        <li><strong>SwayPlus:</strong> An enhanced configuration and toolset for the Sway window manager, focusing on productivity improvements</li>
+        <li><strong>Telegram Automation Bot:</strong> A comprehensive template for building Telegram bots with referral systems and user management</li>
+        <li><strong>Solana NFT Creator:</strong> A streamlined tool for creating and deploying NFT collections on the Solana blockchain</li>
     </ul>
 
     <hr>
 
-    <h3>Slide in the DMs (Contact)</h3>
+    <h3>Let's Connect</h3>
     <p>
-        Wanna vibe, collab, or swap cursed stack traces? Hit me up before I Ohio myself into a .bashrc spiral:
+        I'm always interested in discussing technology, collaborating on interesting projects, or simply having a good conversation about software development. Feel free to reach out through any of the following channels:
     </p>
-    <ul style="list-style-type: none; padding-left: 0;">
-        <li>Email: <a href="mailto:hello@kebabhan.dev">hello@kebabhan.dev</a> (say hi or I’m sending diddy's baby oil)</li>
-        <li>GitHub: <a href="https://github.com/tfarhan00" target="_blank">github.com/tfarhan00</a> (visit pls or I’m stealing your stars)</li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/tengkufarhan" target="_blank">linkedin.com/in/tengkufarhan</a> (no normies recruiter, plz)</li>
+    <ul class="contact-list" style="list-style-type: none; padding-left: 0;">
+        <li>Email: <a href="mailto:hello@kebabhan.dev">hello@kebabhan.dev</a></li>
+        <li>GitHub: <a href="https://github.com/tfarhan00" target="_blank">github.com/tfarhan00</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/tengkufarhan" target="_blank">linkedin.com/in/tengkufarhan</a></li>
     </ul>
+
+    <div class="signature">
+        — Han
+    </div>
 
     <div class="footer">
-        <p>© 2023 kebabhan. Coded in Times New Roman, god tier font fr</p>
-        <p>Powered by Red Bull, Arch Wiki, and solo leveling brainrot.</p>
-        <div class="visitor-counter">Visitor # <span>69420</span></div>
-        <p style="font-size: 0.8em; margin-top: 10px;">(Counter’s fake, like my ability to laugh at job.)</p>
+        <p>Crafted with care in Jakarta, Indonesia</p>
+        <p>Built with vanilla HTML, CSS, and a love for simple, elegant design</p>
     </div>
 
 </body>
