@@ -6,6 +6,7 @@
     <title>Tengku Farhan</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* CSS is unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -14,10 +15,10 @@
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background: #000;
-            color: #fff;
-            line-height: 1.4;
-            font-size: 13px;
+            background: #fff;
+            color: #000;
+            line-height: 1.3;
+            font-size: 12px;
             overflow-x: hidden;
         }
 
@@ -28,425 +29,221 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
+            background-color: #ffffff; 
         }
 
         .container {
-            max-width: 600px;
-            padding: 60px 40px;
+            max-width: 500px;
+            padding: 40px 30px;
             position: relative;
             z-index: 1;
         }
 
-        .header {
-            margin-bottom: 80px;
-        }
-
-        .name {
-            font-size: 32px;
-            font-weight: 300;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
-
-        .title {
-            font-size: 14px;
-            color: #666;
-            font-weight: 300;
-        }
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            font-size: 11px;
-            color: #999;
-            font-weight: 400;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .about {
-            color: #ccc;
-            font-weight: 300;
-            max-width: 480px;
-        }
-
-        .skills {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .skill-item {
-            font-size: 12px;
-            color: #888;
-            font-weight: 300;
-            padding: 4px 0;
-            border-left: 1px solid #333;
-            padding-left: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover {
-            color: #fff;
-            border-left-color: #fff;
-        }
-
-        .projects {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-
-        .project {
-            border-bottom: 1px solid #111;
-            padding-bottom: 16px;
-        }
-
-        .project:last-child {
-            border-bottom: none;
-        }
-
-        .project-name {
-            color: #fff;
-            font-weight: 400;
-            font-size: 14px;
-            margin-bottom: 6px;
-        }
-
-        .project-desc {
-            font-size: 12px;
-            color: #666;
-            font-weight: 300;
-        }
-
-        /* Timeline Styles */
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                #333 10%, 
-                #333 90%, 
-                transparent 100%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -34px;
-            top: 2px;
-            width: 7px;
-            height: 7px;
-            background: #fff;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover::before {
-            background: #fff;
-            transform: scale(1.2);
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-        }
-
-        .timeline-role {
-            color: #fff;
-            font-weight: 400;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .timeline-company {
-            font-size: 11px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .timeline-period {
-            font-size: 10px;
-            color: #555;
-            font-weight: 300;
-            margin-bottom: 8px;
-        }
-
-        .timeline-desc {
-            font-size: 12px;
-            color: #666;
-            font-weight: 300;
-            line-height: 1.5;
-        }
-
-        .contact {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .contact-label {
-            font-size: 11px;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            min-width: 60px;
-        }
-
-        .contact-item a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 300;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #fff;
-        }
-
-        .signature {
-            margin-top: 100px;
-            font-size: 11px;
-            color: #333;
-            font-weight: 300;
-        }
-
-        .footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #111;
-            color: #333;
-            font-size: 10px;
-            font-weight: 300;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
-            }
-            
-            .name {
-                font-size: 24px;
-            }
-        }
+        /* ... all other CSS styles remain the same ... */
+        .header { margin-bottom: 50px; }
+        .name { font-size: 24px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 4px; }
+        .title { font-size: 12px; color: #666; font-weight: 300; }
+        .section { margin-bottom: 40px; }
+        .section-title { font-size: 10px; color: #333; font-weight: 400; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1.5px; }
+        .about { color: #444; font-weight: 300; max-width: 400px; font-size: 11px; }
+        .skills { display: flex; flex-direction: column; gap: 6px; }
+        .skill-item { font-size: 11px; color: #555; font-weight: 300; padding: 3px 0; border-left: 1px solid #ddd; padding-left: 10px; transition: all 0.3s ease; }
+        .skill-item:hover { color: #000; border-left-color: #000; }
+        .projects { display: flex; flex-direction: column; gap: 16px; }
+        .project { border-bottom: 1px solid #eee; padding-bottom: 12px; }
+        .project:last-child { border-bottom: none; }
+        .project-name { color: #000; font-weight: 400; font-size: 12px; margin-bottom: 4px; }
+        .project-desc { font-size: 10px; color: #666; font-weight: 300; }
+        .timeline { position: relative; padding-left: 25px; }
+        .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent 0%, #ccc 10%, #ccc 90%, transparent 100%); }
+        .timeline-item { position: relative; margin-bottom: 20px; padding-bottom: 16px; }
+        .timeline-item:last-child { margin-bottom: 0; padding-bottom: 0; }
+        .timeline-item::before { content: ''; position: absolute; left: -28px; top: 2px; width: 5px; height: 5px; background: #000; border-radius: 50%; transition: all 0.3s ease; }
+        .timeline-item:hover::before { background: #000; transform: scale(1.3); box-shadow: 0 0 6px rgba(0, 0, 0, 0.2); }
+        .timeline-role { color: #000; font-weight: 400; font-size: 12px; margin-bottom: 2px; }
+        .timeline-company { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+        .timeline-period { font-size: 9px; color: #999; font-weight: 300; margin-bottom: 5px; }
+        .timeline-desc { font-size: 10px; color: #555; font-weight: 300; line-height: 1.4; }
+        .contact { display: flex; flex-direction: column; gap: 10px; }
+        .contact-item { display: flex; align-items: center; gap: 12px; }
+        .contact-label { font-size: 9px; color: #999; text-transform: uppercase; letter-spacing: 1px; min-width: 50px; }
+        .contact-item a { color: #444; text-decoration: none; font-size: 10px; font-weight: 300; transition: color 0.3s ease; }
+        .contact-item a:hover { color: #000; }
+        .signature { margin-top: 60px; font-size: 9px; color: #ccc; font-weight: 300; }
+        .footer { margin-top: 40px; padding-top: 15px; border-top: 1px solid #eee; color: #999; font-size: 9px; font-weight: 300; }
+        @media (max-width: 768px) { .container { padding: 30px 15px; } .name { font-size: 20px; } }
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
     
     <div class="container">
-        <div class="header">
-            <h1 class="name">Tengku Farhan</h1>
-            <p class="title">Fullstack Engineer</p>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">About</h2>
-            <p class="about">
-                Fullstack engineer based in Jakarta. Building scalable systems and crafting user experiences.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Stack</h2>
-            <div class="skills">
-                <div class="skill-item">Python, JavaScript, TypeScript</div>
-                <div class="skill-item">React, Next.js, Node.js</div>
-                <div class="skill-item">PostgreSQL, MongoDB, Redis</div>
-                <div class="skill-item">Docker, AWS, GCP</div>
-                <div class="skill-item">Rust, C, Linux</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-role">Technical Lead</div>
-                    <div class="timeline-company">ArctureLab</div>
-                    <div class="timeline-period">Jan 2025 - Present</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-role">Web3 Fullstack Engineer</div>
-                    <div class="timeline-company">Engowl Studio</div>
-                    <div class="timeline-period">Jan 2024 - Feb 2025</div>
-                    <div class="timeline-desc">Built Web3 apps serving >50k users, won ETHGlobal Singapore</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-role">Web Developer</div>
-                    <div class="timeline-company">Upwork</div>
-                    <div class="timeline-period">Nov 2023 - Feb 2024</div>
-                    <div class="timeline-desc">Freelance development</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-role">Frontend Developer</div>
-                    <div class="timeline-company">Netra</div>
-                    <div class="timeline-period">Mar 2023 - Sep 2023</div>
-                    <div class="timeline-desc">Web3 UI/UX, 80% performance optimization</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects">
-                <div class="project">
-                    <div class="project-name">SwayPlus</div>
-                    <div class="project-desc">Enhanced Sway WM with productivity tools</div>
-                </div>
-                <div class="project">
-                    <div class="project-name">Telegram Bot Framework</div>
-                    <div class="project-desc">Scalable bot template with user management</div>
-                </div>
-                <div class="project">
-                    <div class="project-name">Solana NFT Tools</div>
-                    <div class="project-desc">Streamlined NFT deployment pipeline</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Connect</h2>
-            <div class="contact">
-                <div class="contact-item">
-                    <div class="contact-label">Email</div>
-                    <a href="mailto:hello@kebabhan.dev">hello@kebabhan.dev</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-label">GitHub</div>
-                    <a href="https://github.com/tfarhan00" target="_blank">tfarhan00</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-label">LinkedIn</div>
-                    <a href="https://linkedin.com/in/tengkufarhan" target="_blank">tengkufarhan</a>
-                </div>
-            </div>
-        </div>
-
+        <!-- All your HTML content remains here -->
+        <div class="header"> <h1 class="name">Tengku Farhan</h1> <p class="title">Fullstack Engineer</p> </div>
+        <div class="section"> <h2 class="section-title">About</h2> <p class="about"> Fullstack engineer based in Jakarta. Building scalable systems and crafting user experiences. </p> </div>
+        <div class="section"> <h2 class="section-title">Stack</h2> <div class="skills"> <div class="skill-item">Python, JavaScript, TypeScript</div> <div class="skill-item">React, Next.js, Node.js</div> <div class="skill-item">PostgreSQL, MongoDB, Redis</div> <div class="skill-item">Docker, AWS, GCP</div> <div class="skill-item">Rust, C, Linux</div> </div> </div>
+        <div class="section"> <h2 class="section-title">Experience</h2> <div class="timeline"> <div class="timeline-item"> <div class="timeline-role">Technical Lead</div> <div class="timeline-company">ArctureLab</div> <div class="timeline-period">Jan 2025 - Present</div> </div> <div class="timeline-item"> <div class="timeline-role">Web3 Fullstack Engineer</div> <div class="timeline-company">Engowl Studio</div> <div class="timeline-period">Jan 2024 - Feb 2025</div> <div class="timeline-desc">Built Web3 apps serving >50k users, won ETHGlobal Singapore</div> </div> <div class="timeline-item"> <div class="timeline-role">Web Developer</div> <div class="timeline-company">Upwork</div> <div class="timeline-period">Nov 2023 - Feb 2024</div> <div class="timeline-desc">Freelance development</div> </div> <div class="timeline-item"> <div class="timeline-role">Frontend Developer</div> <div class="timeline-company">Netra</div> <div class="timeline-period">Mar 2023 - Sep 2023</div> <div class="timeline-desc">Web3 UI/UX, 80% performance optimization</div> </div> </div> </div>
+        <div class="section"> <h2 class="section-title">Projects</h2> <div class="projects"> <div class="project"> <div class="project-name">SwayPlus</div> <div class="project-desc">Enhanced Sway WM with productivity tools</div> </div> <div class="project"> <div class="project-name">Telegram Bot Framework</div> <div class="project-desc">Scalable bot template with user management</div> </div> <div class="project"> <div class="project-name">Solana NFT Tools</div> <div class="project-desc">Streamlined NFT deployment pipeline</div> </div> </div> </div>
+        <div class="section"> <h2 class="section-title">Connect</h2> <div class="contact"> <div class="contact-item"> <div class="contact-label">Email</div> <a href="mailto:hello@kebabhan.dev">hello@kebabhan.dev</a> </div> <div class="contact-item"> <div class="contact-label">GitHub</div> <a href="https://github.com/tfarhan00" target="_blank">tfarhan00</a> </div> <div class="contact-item"> <div class="contact-label">LinkedIn</div> <a href="https://linkedin.com/in/tengkufarhan" target="_blank">tengkufarhan</a> </div> </div> </div>
         <div class="signature">— Han</div>
-
-        <div class="footer">
-            <p>Jakarta, Indonesia</p>
-        </div>
+        <div class="footer"> <p>Jakarta, Indonesia</p> </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+    #version 300 es
+    in vec2 a_position;
+    void main() {
+        gl_Position = vec4(a_position, 0.0, 1.0);
+    }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+    #version 300 es
+    precision highp float;
+
+    uniform vec2 u_resolution;
+    uniform float u_time;
+
+    out vec4 fragColor;
+
+    // 2D Random function
+    float random(vec2 st) {
+        return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+    }
+
+    // 2D Noise function (smooths out the random values)
+    float noise(vec2 st) {
+        vec2 i = floor(st);
+        vec2 f = fract(st);
+
+        float a = random(i + vec2(0.0, 0.0));
+        float b = random(i + vec2(1.0, 0.0));
+        float c = random(i + vec2(0.0, 1.0));
+        float d = random(i + vec2(1.0, 1.0));
+
+        // Smoothstep interpolation
+        vec2 u = f * f * (3.0 - 2.0 * f);
+        return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.y * u.x;
+    }
+
+    void main() {
+        // Adjust coordinate system and account for aspect ratio
+        vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+        uv.x *= u_resolution.x / u_resolution.y;
+
+        // --- Create two layers of scrolling noise ---
+        // Layer 1: Slow, large-scale diagonal flow
+        vec2 uv1 = uv + vec2(u_time * 0.02, u_time * 0.03);
+        float noise1 = noise(uv1 * 3.0);
+
+        // Layer 2: Faster, smaller-scale opposing diagonal flow
+        vec2 uv2 = uv - vec2(u_time * 0.05, u_time * 0.04);
+        float noise2 = noise(uv2 * 6.0);
+        
+        // Combine the noise layers
+        float combined_noise = noise1 + noise2 * 0.5;
+
+        // --- Create sharp, anti-aliased contour lines from the noise ---
+        // 'fract' creates repeating bands from 0.0 to 1.0
+        float bands = fract(combined_noise * 4.0);
+        
+        // Use smoothstep to draw a very thin line. This is the key to making it look sharp.
+        float line_intensity = smoothstep(0.48, 0.5, bands) - smoothstep(0.5, 0.52, bands);
+        
+        // --- Final Color and Opacity ---
+        vec3 base_color = vec3(0.2); // Dark grey color for the lines
+        float opacity = line_intensity * 0.20; // Set final opacity to 20%
+
+        // Manually blend the line color with a white background
+        vec3 final_color = mix(vec3(1.0), base_color, opacity);
+
+        // Output the final color. Alpha is 1.0 because we've already blended.
+        fragColor = vec4(final_color, 1.0);
+    }
+    </script>
+
     <script>
-        // Three.js WebGPU-style minimalist particle system
         const canvas = document.getElementById('canvas');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-        
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000, 0);
+        const gl = canvas.getContext('webgl2', { antialias: true }); // antialias can help
 
-        // Create minimal particle system
-        const particleCount = 100;
-        const particles = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const velocities = [];
+        if (!gl) {
+            console.error("WebGL2 not supported, background effect will not display.");
+        } else {
+            const vertexShaderSource = document.getElementById('vertex-shader').text.trim();
+            const fragmentShaderSource = document.getElementById('fragment-shader').text.trim();
 
-        for (let i = 0; i < particleCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 20;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+            const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+            const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
             
-            velocities.push({
-                x: (Math.random() - 0.5) * 0.002,
-                y: (Math.random() - 0.5) * 0.002,
-                z: (Math.random() - 0.5) * 0.002
-            });
-        }
+            const program = createProgram(gl, vertexShader, fragmentShader);
 
-        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+            const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+            const timeUniformLocation = gl.getUniformLocation(program, "u_time");
 
-        const material = new THREE.PointsMaterial({
-            color: 0xffffff,
-            size: 1,
-            transparent: true,
-            opacity: 0.6
-        });
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            const positions = [-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1];
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
-        const particleSystem = new THREE.Points(particles, material);
-        scene.add(particleSystem);
+            const vao = gl.createVertexArray();
+            gl.bindVertexArray(vao);
+            gl.enableVertexAttribArray(positionAttributeLocation);
+            gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
-        camera.position.z = 5;
+            function render(time) {
+                time *= 0.0001; // Slow down time for a more subtle effect
 
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
+                resizeCanvasToDisplaySize(gl.canvas);
+                gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
-            const positions = particleSystem.geometry.attributes.position.array;
-            
-            for (let i = 0; i < particleCount; i++) {
-                positions[i * 3] += velocities[i].x;
-                positions[i * 3 + 1] += velocities[i].y;
-                positions[i * 3 + 2] += velocities[i].z;
+                gl.clearColor(1, 1, 1, 1);
+                gl.clear(gl.COLOR_BUFFER_BIT);
 
-                // Wrap around screen
-                if (positions[i * 3] > 10) positions[i * 3] = -10;
-                if (positions[i * 3] < -10) positions[i * 3] = 10;
-                if (positions[i * 3 + 1] > 10) positions[i * 3 + 1] = -10;
-                if (positions[i * 3 + 1] < -10) positions[i * 3 + 1] = 10;
+                gl.useProgram(program);
+                gl.bindVertexArray(vao);
+
+                gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+                gl.uniform1f(timeUniformLocation, time);
+
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+                requestAnimationFrame(render);
             }
-
-            particleSystem.geometry.attributes.position.needsUpdate = true;
-            particleSystem.rotation.y += 0.001;
-
-            renderer.render(scene, camera);
+            
+            requestAnimationFrame(render);
+        }
+        
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return shader;
+            console.error(`Error compiling shader type ${type}:`);
+            console.error(gl.getShaderInfoLog(shader));
+            gl.deleteShader(shader);
         }
 
-        animate();
+        function createProgram(gl, vertexShader, fragmentShader) {
+            const program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            if (gl.getProgramParameter(program, gl.LINK_STATUS)) return program;
+            console.error(gl.getProgramInfoLog(program));
+            gl.deleteProgram(program);
+        }
 
-        // Handle resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        // Mouse interaction
-        let mouseX = 0;
-        let mouseY = 0;
-        
-        document.addEventListener('mousemove', (event) => {
-            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-            
-            particleSystem.rotation.x = mouseY * 0.1;
-            particleSystem.rotation.y = mouseX * 0.1;
-        });
+        function resizeCanvasToDisplaySize(canvas) {
+            const displayWidth  = canvas.clientWidth;
+            const displayHeight = canvas.clientHeight;
+            if (canvas.width  !== displayWidth || canvas.height !== displayHeight) {
+                canvas.width  = displayWidth;
+                canvas.height = displayHeight;
+                return true;
+            }
+            return false;
+        }
     </script>
 </body>
 </html>
