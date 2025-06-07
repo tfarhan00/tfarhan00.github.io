@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tengku Farhan - Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Tengku Farhan</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,197 +13,307 @@
         }
 
         body {
-            font-family: 'IBM Plex Mono', monospace;
-            background: linear-gradient(135deg, #0a0a0a 0%, #0f1419 50%, #1a1f2e 100%);
-            color: #e0e0e0;
-            line-height: 1.5;
-            font-size: 14px;
-            min-height: 100vh;
+            font-family: 'JetBrains Mono', monospace;
+            background: #000;
+            color: #fff;
+            line-height: 1.4;
+            font-size: 13px;
+            overflow-x: hidden;
+        }
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            max-width: 600px;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
         }
 
         .header {
-            border-bottom: 1px solid #2d3748;
-            background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
-            padding: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 80px;
         }
 
         .name {
-            font-size: 24px;
-            font-weight: 500;
-            color: #ffffff;
-            margin-bottom: 4px;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
         }
 
         .title {
             font-size: 14px;
-            color: #888;
+            color: #666;
             font-weight: 300;
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 60px;
         }
 
         .section-title {
-            font-size: 14px;
-            color: #60a5fa;
-            font-weight: 500;
-            margin-bottom: 15px;
+            font-size: 11px;
+            color: #999;
+            font-weight: 400;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-left: 3px solid #3b82f6;
-            padding-left: 10px;
+            letter-spacing: 2px;
         }
 
         .about {
             color: #ccc;
-            max-width: 600px;
+            font-weight: 300;
+            max-width: 480px;
         }
 
         .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 8px;
         }
 
         .skill-item {
-            background: linear-gradient(135deg, #111827, #1f2937);
-            padding: 12px;
-            border: 1px solid #374151;
-            font-size: 13px;
-            color: #ccc;
-            transition: border-color 0.2s ease;
+            font-size: 12px;
+            color: #888;
+            font-weight: 300;
+            padding: 4px 0;
+            border-left: 1px solid #333;
+            padding-left: 12px;
+            transition: all 0.3s ease;
         }
 
         .skill-item:hover {
-            border-color: #3b82f6;
+            color: #fff;
+            border-left-color: #fff;
         }
 
         .projects {
-            display: grid;
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .project {
-            background: #111;
-            padding: 15px;
-            border: 1px solid #222;
+            border-bottom: 1px solid #111;
+            padding-bottom: 16px;
+        }
+
+        .project:last-child {
+            border-bottom: none;
         }
 
         .project-name {
-            color: #ffffff;
-            font-weight: 500;
+            color: #fff;
+            font-weight: 400;
             font-size: 14px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .project-desc {
-            font-size: 13px;
-            color: #ccc;
+            font-size: 12px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, 
+                #333 10%, 
+                #333 90%, 
+                transparent 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 2px;
+            width: 7px;
+            height: 7px;
+            background: #fff;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: #fff;
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-role {
+            color: #fff;
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-period {
+            font-size: 10px;
+            color: #555;
+            font-weight: 300;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 12px;
+            color: #666;
+            font-weight: 300;
+            line-height: 1.5;
         }
 
         .contact {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .contact-item {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
-            padding: 15px;
-            border: 1px solid #374151;
-            transition: border-color 0.2s ease;
-        }
-
-        .contact-item:hover {
-            border-color: #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 16px;
         }
 
         .contact-label {
-            font-size: 12px;
-            color: #888;
+            font-size: 11px;
+            color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            min-width: 60px;
         }
 
         .contact-item a {
-            color: #ffffff;
+            color: #ccc;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
+            font-weight: 300;
+            transition: color 0.3s ease;
         }
 
         .contact-item a:hover {
-            color: #ccc;
+            color: #fff;
         }
 
         .signature {
-            margin-top: 40px;
-            text-align: right;
-            color: #888;
-            font-size: 14px;
+            margin-top: 100px;
+            font-size: 11px;
+            color: #333;
+            font-weight: 300;
         }
 
         .footer {
-            margin-top: 40px;
+            margin-top: 60px;
             padding-top: 20px;
-            border-top: 1px solid #333;
-            text-align: center;
-            color: #666;
-            font-size: 12px;
+            border-top: 1px solid #111;
+            color: #333;
+            font-size: 10px;
+            font-weight: 300;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 20px 15px;
+                padding: 40px 20px;
             }
             
-            .skills {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact {
-                grid-template-columns: 1fr;
+            .name {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
+    <canvas id="canvas"></canvas>
+    
     <div class="container">
         <div class="header">
             <h1 class="name">Tengku Farhan</h1>
-            <p class="title">Software Engineer</p>
+            <p class="title">Fullstack Engineer</p>
         </div>
 
         <div class="section">
             <h2 class="section-title">About</h2>
             <p class="about">
-                Software engineer based in Jakarta, crafting reliable solutions and solving complex technical challenges. 
-                Passionate about Linux systems, open-source contributions, and building scalable applications.
+                Fullstack engineer based in Jakarta. Building scalable systems and crafting user experiences.
             </p>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Expertise</h2>
+            <h2 class="section-title">Stack</h2>
             <div class="skills">
-                <div class="skill-item">Python & JavaScript with modern frameworks</div>
-                <div class="skill-item">RESTful APIs with comprehensive documentation</div>
-                <div class="skill-item">Git workflows & collaborative development</div>
-                <div class="skill-item">Docker containerization & deployment</div>
-                <div class="skill-item">SQL & NoSQL database optimization</div>
-                <div class="skill-item">AWS & Google Cloud Platform</div>
-                <div class="skill-item">System monitoring & log analysis</div>
-                <div class="skill-item">Arch Linux customization & workflows</div>
-                <div class="skill-item">Technical documentation & communication</div>
-                <div class="skill-item">Rust & C systems programming</div>
+                <div class="skill-item">Python, JavaScript, TypeScript</div>
+                <div class="skill-item">React, Next.js, Node.js</div>
+                <div class="skill-item">PostgreSQL, MongoDB, Redis</div>
+                <div class="skill-item">Docker, AWS, GCP</div>
+                <div class="skill-item">Rust, C, Linux</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-role">Technical Lead</div>
+                    <div class="timeline-company">ArctureLab</div>
+                    <div class="timeline-period">Jan 2025 - Present</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-role">Web3 Fullstack Engineer</div>
+                    <div class="timeline-company">Engowl Studio</div>
+                    <div class="timeline-period">Jan 2024 - Feb 2025</div>
+                    <div class="timeline-desc">Built Web3 apps serving >50k users, won ETHGlobal Singapore</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-role">Web Developer</div>
+                    <div class="timeline-company">Upwork</div>
+                    <div class="timeline-period">Nov 2023 - Feb 2024</div>
+                    <div class="timeline-desc">Freelance development</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-role">Frontend Developer</div>
+                    <div class="timeline-company">Netra</div>
+                    <div class="timeline-period">Mar 2023 - Sep 2023</div>
+                    <div class="timeline-desc">Web3 UI/UX, 80% performance optimization</div>
+                </div>
             </div>
         </div>
 
@@ -212,15 +322,15 @@
             <div class="projects">
                 <div class="project">
                     <div class="project-name">SwayPlus</div>
-                    <div class="project-desc">Enhanced Sway window manager configuration with productivity-focused toolset</div>
+                    <div class="project-desc">Enhanced Sway WM with productivity tools</div>
                 </div>
                 <div class="project">
-                    <div class="project-name">Telegram Automation Bot</div>
-                    <div class="project-desc">Comprehensive template for Telegram bots with referral systems and user management</div>
+                    <div class="project-name">Telegram Bot Framework</div>
+                    <div class="project-desc">Scalable bot template with user management</div>
                 </div>
                 <div class="project">
-                    <div class="project-name">Solana NFT Creator</div>
-                    <div class="project-desc">Streamlined tool for creating and deploying NFT collections on Solana blockchain</div>
+                    <div class="project-name">Solana NFT Tools</div>
+                    <div class="project-desc">Streamlined NFT deployment pipeline</div>
                 </div>
             </div>
         </div>
@@ -234,11 +344,11 @@
                 </div>
                 <div class="contact-item">
                     <div class="contact-label">GitHub</div>
-                    <a href="https://github.com/tfarhan00" target="_blank">github.com/tfarhan00</a>
+                    <a href="https://github.com/tfarhan00" target="_blank">tfarhan00</a>
                 </div>
                 <div class="contact-item">
                     <div class="contact-label">LinkedIn</div>
-                    <a href="https://linkedin.com/in/tengkufarhan" target="_blank">linkedin.com/in/tengkufarhan</a>
+                    <a href="https://linkedin.com/in/tengkufarhan" target="_blank">tengkufarhan</a>
                 </div>
             </div>
         </div>
@@ -246,9 +356,97 @@
         <div class="signature">— Han</div>
 
         <div class="footer">
-            <p>Built with my own fingers</p>
             <p>Jakarta, Indonesia</p>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Three.js WebGPU-style minimalist particle system
+        const canvas = document.getElementById('canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0);
+
+        // Create minimal particle system
+        const particleCount = 100;
+        const particles = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const velocities = [];
+
+        for (let i = 0; i < particleCount; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 20;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+            
+            velocities.push({
+                x: (Math.random() - 0.5) * 0.002,
+                y: (Math.random() - 0.5) * 0.002,
+                z: (Math.random() - 0.5) * 0.002
+            });
+        }
+
+        particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const material = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 1,
+            transparent: true,
+            opacity: 0.6
+        });
+
+        const particleSystem = new THREE.Points(particles, material);
+        scene.add(particleSystem);
+
+        camera.position.z = 5;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const positions = particleSystem.geometry.attributes.position.array;
+            
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3] += velocities[i].x;
+                positions[i * 3 + 1] += velocities[i].y;
+                positions[i * 3 + 2] += velocities[i].z;
+
+                // Wrap around screen
+                if (positions[i * 3] > 10) positions[i * 3] = -10;
+                if (positions[i * 3] < -10) positions[i * 3] = 10;
+                if (positions[i * 3 + 1] > 10) positions[i * 3 + 1] = -10;
+                if (positions[i * 3 + 1] < -10) positions[i * 3 + 1] = 10;
+            }
+
+            particleSystem.geometry.attributes.position.needsUpdate = true;
+            particleSystem.rotation.y += 0.001;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Mouse interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            
+            particleSystem.rotation.x = mouseY * 0.1;
+            particleSystem.rotation.y = mouseX * 0.1;
+        });
+    </script>
 </body>
 </html>
